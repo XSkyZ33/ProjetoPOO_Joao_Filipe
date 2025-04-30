@@ -103,6 +103,117 @@
                     "classificacao": 4
                 }
             ]
+        },
+        {
+            "id": "3",
+            "name": "Mike",
+            "email": "albert@gmail.com",
+            "password": "12345677",
+            "image": "https://www.cnnbrasil.com.br/wp-content/uploads/sites/12/2023/07/IMG_4020.jpg?w=495",
+            "bio": "Explainer de Matemática e Física",
+            "disponibilidade": [
+                "9:00",
+                "10:00",
+                "15:00",
+                "16:00",
+                "17:00",
+                "18:00"
+            ],
+            "disciplinas": [
+                "Quimica",
+                "Biologia"
+            ],
+            "nivel": "Universitário",
+            "modalidade": "Online",
+            "local": "Amarante",
+            "preco": 20,
+            "classificacao": 4.0,
+            "avaliacoes": [
+                {
+                    "id": "1",
+                    "comentario": "Ótimo professor!",
+                    "classificacao": 4
+                },
+                {
+                    "id": "2",
+                    "comentario": "Muito bom!",
+                    "classificacao": 4
+                }
+            ]
+        },
+        {
+            "id": "4",
+            "name": "Steve",
+            "email": "albert@gmail.com",
+            "password": "12345677",
+            "image": "https://www.cnnbrasil.com.br/wp-content/uploads/sites/12/2023/07/IMG_4020.jpg?w=495",
+            "bio": "Explainer de Matemática e Física",
+            "disponibilidade": [
+                "9:00",
+                "10:00",
+                "15:00",
+                "16:00",
+                "17:00",
+                "18:00"
+            ],
+            "disciplinas": [
+                "Quimica",
+                "Matemática"
+            ],
+            "nivel": "Universitário",
+            "modalidade": "Online",
+            "local": "Leiria",
+            "preco": 20,
+            "classificacao": 4.0,
+            "avaliacoes": [
+                {
+                    "id": "1",
+                    "comentario": "Ótimo professor!",
+                    "classificacao": 4
+                },
+                {
+                    "id": "2",
+                    "comentario": "Muito bom!",
+                    "classificacao": 4
+                }
+            ]
+        },
+        {
+            "id": "5",
+            "name": "Mike",
+            "email": "albert@gmail.com",
+            "password": "12345677",
+            "image": "https://www.cnnbrasil.com.br/wp-content/uploads/sites/12/2023/07/IMG_4020.jpg?w=495",
+            "bio": "Explainer de Matemática e Física",
+            "disponibilidade": [
+                "9:00",
+                "10:00",
+                "15:00",
+                "16:00",
+                "17:00",
+                "18:00"
+            ],
+            "disciplinas": [
+                "Física",
+                "Biologia"
+            ],
+            "nivel": "Universitário",
+            "modalidade": "Online",
+            "local": "Madeira",
+            "preco": 20,
+            "classificacao": 4.0,
+            "avaliacoes": [
+                {
+                    "id": "1",
+                    "comentario": "Ótimo professor!",
+                    "classificacao": 4
+                },
+                {
+                    "id": "2",
+                    "comentario": "Muito bom!",
+                    "classificacao": 4
+                }
+            ]
         }
     ]
 }

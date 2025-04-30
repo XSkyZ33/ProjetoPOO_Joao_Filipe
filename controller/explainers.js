@@ -1,6 +1,7 @@
 const API_BASE_URL = 'http://localhost:3000';
 const ENDPOINT = '/explainer';
-const container = document.getElementById('explainers-container');
+
+const container = document.querySelector('.recipe-container');
 
 // Filtros
 const nomeInput = document.getElementById('filter-nome');
@@ -11,19 +12,21 @@ const disciplinasSelect = document.getElementById('filter-disciplinas');
 
 let explicadores = [];
 
+// Fetch inicial
+document.addEventListener('DOMContentLoaded', async () => {
+    explicadores = await fetchExplainers();
+    renderExplainers(explicadores);
+    populateDynamicFilters(explicadores);
+    attachFilterEvents();
+});
+
 async function fetchExplainers() {
     const res = await fetch(`${API_BASE_URL}${ENDPOINT}`);
-    explicadores = await res.json();
-    renderExplainers(explicadores);
+    return await res.json();
 }
 
 function renderExplainers(data) {
-    container.innerHTML = '';
-    if (data.length === 0) {
-        container.innerHTML = '<p>Nenhum explicador encontrado.</p>';
-        return;
-    }
-
+    container.innerHTML = ''; // limpa
     data.forEach(exp => {
         const card = document.createElement('div');
         card.className = 'recipe-card';
@@ -39,45 +42,65 @@ function renderExplainers(data) {
                 <p><strong>Disciplinas:</strong> ${exp.disciplinas.join(', ')}</p>
             </div>
         `;
-
         container.appendChild(card);
     });
 }
 
-function applyFilters() {
-    let filtered = explicadores;
+function populateDynamicFilters(data) {
+    const niveis = [...new Set(data.map(e => e.nivel))];
+    const locais = [...new Set(data.map(e => e.local))];
+    const disciplinas = [...new Set(data.flatMap(e => e.disciplinas))];
 
-    const nome = nomeInput.value.toLowerCase();
-    const nivel = nivelSelect.value;
-    const precoRange = precoSelect.value;
-    const local = localSelect.value;
-    const disciplinas = Array.from(disciplinasSelect.selectedOptions).map(opt => opt.value);
+    nivelSelect.innerHTML = `<option value="">Todos os níveis</option>` +
+        niveis.map(n => `<option value="${n}">${n}</option>`).join('');
 
-    filtered = filtered.filter(exp => {
-        const matchNome = exp.name.toLowerCase().includes(nome);
-        const matchNivel = nivel === '' || exp.nivel === nivel;
-        const matchPreco = precoRange === '' || checkPreco(exp.preco, precoRange);
-        const matchLocal = local === '' || exp.local === local;
-        const matchDisciplinas = disciplinas.length === 0 || disciplinas.every(d => exp.disciplinas.includes(d));
+    localSelect.innerHTML = `<option value="">Todas as localidades</option>` +
+        locais.map(l => `<option value="${l}">${l}</option>`).join('');
 
-        return matchNome && matchNivel && matchPreco && matchLocal && matchDisciplinas;
-    });
+    disciplinasSelect.innerHTML =
+        disciplinas.map(d => `<option value="${d}">${d}</option>`).join('');
+}
+
+function attachFilterEvents() {
+    nomeInput?.addEventListener('input', filterAndRender);
+    nivelSelect?.addEventListener('change', filterAndRender);
+    precoSelect?.addEventListener('change', filterAndRender);
+    localSelect?.addEventListener('change', filterAndRender);
+    disciplinasSelect?.addEventListener('change', filterAndRender);
+}
+
+function filterAndRender() {
+    let filtered = [...explicadores];
+
+    const nome = nomeInput?.value.toLowerCase() || '';
+    const nivel = nivelSelect?.value;
+    const preco = precoSelect?.value;
+    const local = localSelect?.value;
+    const selectedDisciplinas = Array.from(disciplinasSelect?.selectedOptions || []).map(o => o.value);
+
+    // Filtros aplicados
+    if (nome) {
+        filtered = filtered.filter(e => e.name.toLowerCase().includes(nome));
+    }
+
+    if (nivel) {
+        filtered = filtered.filter(e => e.nivel === nivel);
+    }
+
+    if (preco) {
+        const [min, max] = preco.split('-').map(Number);
+        filtered = filtered.filter(e => e.preco >= min && e.preco <= max);
+    }
+
+    if (local) {
+        filtered = filtered.filter(e => e.local === local);
+    }
+
+    if (selectedDisciplinas.length > 0) {
+        filtered = filtered.filter(e =>
+            selectedDisciplinas.every(d => e.disciplinas.includes(d))
+        );
+    }
 
     renderExplainers(filtered);
 }
-
-function checkPreco(preco, range) {
-    const [min, max] = range.split('-').map(Number);
-    return preco >= min && preco <= max;
-}
-
-// Eventos
-[nomeInput, nivelSelect, precoSelect, localSelect, disciplinasSelect].forEach(el => {
-    el.addEventListener('input', applyFilters);
-});
-
-window.onload = fetchExplainers;
-window.addEventListener('DOMContentLoaded', () => {
-    fetchExplainers();
-});
-
