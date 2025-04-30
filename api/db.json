@@ -1,0 +1,108 @@
+{
+    "user": [
+        {
+            "id": "1",
+            "name": "Joao Silva",
+            "email": "joaosilva@gmail.com",
+            "password": "123456",
+            "type": "aluno",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Marco_Polo_%28cropped%29.jpg/800px-Marco_Polo_%28cropped%29.jpg"
+        },
+        {
+            "id": "2",
+            "name": "Maria Santos",
+            "email": "maria@gmail.com",
+            "password": "123456",
+            "type": "admin",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Albert_Einstein_%28Nobel%29_-_Restoration.jpg/800px-Albert_Einstein_%28Nobel%29_-_Restoration.jpg"
+        },
+        {
+            "id": "3",
+            "name": "Carlos Pereira",
+            "email": "carlos@gmail.com",
+            "password": "123456",
+            "type": "aluno",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Albert_Einstein_%28Nobel%29_-_Restoration.jpg/800px-Albert_Einstein_%28Nobel%29_-_Restoration.jpg"
+        }
+    ],
+    "explainer": [
+        {
+            "id": "1",
+            "name": "Marco Polo",
+            "email": "marco@gmail.com",
+            "password": "123456",
+            "image": "https://www.cnnbrasil.com.br/wp-content/uploads/sites/12/2023/07/IMG_4032.jpg?w=495",
+            "bio": "Explainer de Matemática e Física",
+            "disponibilidade": [
+                "9:00",
+                "10:00",
+                "11:00",
+                "12:00",
+                "13:00",
+                "14:00",
+                "15:00",
+                "16:00",
+                "17:00",
+                "18:00"
+            ],
+            "disciplinas": [
+                "Matemática",
+                "Física"
+            ],
+            "nivel": "Secundário",
+            "modalidade": "Presencial",
+            "local": "Porto",
+            "preco": 16,
+            "classificacao": 4.5,
+            "avaliacoes": [
+                {
+                    "id": "1",
+                    "comentario": "Ótimo professor!",
+                    "classificacao": 5
+                },
+                {
+                    "id": "2",
+                    "comentario": "Muito bom!",
+                    "classificacao": 4
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "name": "Albert Einstein",
+            "email": "albert@gmail.com",
+            "password": "12345677",
+            "image": "https://www.cnnbrasil.com.br/wp-content/uploads/sites/12/2023/07/IMG_4020.jpg?w=495",
+            "bio": "Explainer de Matemática e Física",
+            "disponibilidade": [
+                "9:00",
+                "10:00",
+                "15:00",
+                "16:00",
+                "17:00",
+                "18:00"
+            ],
+            "disciplinas": [
+                "Matemática",
+                "Física"
+            ],
+            "nivel": "Universitário",
+            "modalidade": "Online",
+            "local": "Lisboa",
+            "preco": 20,
+            "classificacao": 4.8,
+            "avaliacoes": [
+                {
+                    "id": "1",
+                    "comentario": "Ótimo professor!",
+                    "classificacao": 5
+                },
+                {
+                    "id": "2",
+                    "comentario": "Muito bom!",
+                    "classificacao": 4
+                }
+            ]
+        }
+    ]
+}

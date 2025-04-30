@@ -43,25 +43,44 @@
         <h1>PROFESSIONAL <span>EXPLAINER</span></h1>
     </section>
 
-    <!-- Explainers Section -->
     <section id="Explainers" class="content-section">
         <h2>Explainers</h2>
-        <p>kdgjhadfkjhgdshgçksdhjkçdfjh</p>
+        <p>Encontra o explicador ideal para ti!</p>
 
-        <div class="recipe-container">
-            <div class="recipe-card">
-                <h3>Explainer 1</h3>
-            </div>
-            <div class="recipe-card">
-                <h3>Explainer 2</h3>
-            </div>
-            <div class="recipe-card">
-                <h3>Explainer 3</h3>
-            </div>
-            <div class="recipe-card">
-                <h3>Explainer 4</h3>
-            </div>
+        <!-- Filtros -->
+        <div class="filters">
+            <input type="text" id="filter-nome" placeholder="Nome do explicador" />
+
+            <select id="filter-nivel">
+                <option value="">Todos os níveis</option>
+                <option value="Básico">Básico</option>
+                <option value="Secundário">Secundário</option>
+                <option value="Universitário">Universitário</option>
+            </select>
+
+            <select id="filter-preco">
+                <option value="">Todos os preços</option>
+                <option value="0-10">Até 10€</option>
+                <option value="10-20">10€ - 20€</option>
+                <option value="20-999">Mais de 20€</option>
+            </select>
+
+            <select id="filter-local">
+                <option value="">Todas as localidades</option>
+                <option value="Porto">Porto</option>
+                <option value="Lisboa">Lisboa</option>
+            </select>
+
+            <select id="filter-disciplinas" multiple>
+                <option value="Matemática">Matemática</option>
+                <option value="Física">Física</option>
+                <option value="Química">Química</option>
+                <option value="Biologia">Biologia</option>
+            </select>
         </div>
+
+        <!-- Cards dos explicadores -->
+        <div id="explainers-container" class="recipe-container"></div>
     </section>
 
     <!-- Sobre Section -->
@@ -97,7 +116,7 @@
     </footer>
 
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
+    <script src="controller/explainers.js"></script>
 </body>
 
 

@@ -305,3 +305,38 @@ body {
         font-size: 14px;
     }
 }
+
+.recipe-card {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 200px;
+    display: flex;
+    align-items: flex-end;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.card-overlay {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0));
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.rating {
+    font-weight: bold;
+    color: #f5a623;
+}
